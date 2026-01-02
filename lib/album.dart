@@ -22,8 +22,8 @@ class Album {
   }
 }
 
-Future<Album> fetchAlbum() async {
-  final response = await http
+Future<Album> fetchAlbum(http.Client client) async {
+  final response = await client
       .get(Uri.parse('http://jsonplaceholder.typicode.com/albums/1'));
 
   if (response.statusCode == 200) {
